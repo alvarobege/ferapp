@@ -1,0 +1,48 @@
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+
+.buttons-container{
+    width: 360px;
+    display: flex;
+    flex-direction: row-reverse;
+} 
+
+
+.search-results-box{
+    display: inline;
+    border-style: solid;
+    margin-top: 10px;
+    border-radius: 15px;
+    border-width: 4px;
+    border-color: #F300A1;
+    background-color: white;
+
+    
+    .search-results-item{
+        align-items: center;
+        padding: 10px;
+        display: flex;
+        width: 320px;
+        
+    }
+
+    .search-results-item button {
+        margin-right: 5px; /* Ajusta según sea necesario */
+    }
+    .cartel{
+        max-width: 75px;
+    }
+
+    .title{
+        margin: 0px 0px 0px;
+        flex: 1;
+        margin-left: 5px;
+    }
+
+
+}

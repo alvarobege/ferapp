@@ -1,0 +1,35 @@
+.film-search-form{
+    display: flex;
+    margin-top: 15px ;
+    margin-bottom: 15px;
+
+    .text{
+        margin-right: 5px;
+    }
+}
+
+
+.search-results-box{
+    display: inline;
+    margin-top: 10px;
+    .search-results-item{
+        align-items: center;
+        padding: 5px;
+        display: flex;
+        font-size: small;
+        margin-left: -3px;
+    }
+
+    .cartel{
+        max-width: 75px;
+    }
+
+    .title{
+        margin: 0px 0px 0px;
+        flex: 1;
+        margin-left: 7px;
+    }
+
+
+
+}

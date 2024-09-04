@@ -1,0 +1,31 @@
+<div class="center-container">
+ <div class="buttons-container" style="color: #F300A1;">
+    <button mat-icon-button (click)="this.filterFilms()" >
+        <mat-icon *ngIf="this.showSeen" >visibility_off</mat-icon>
+        <mat-icon *ngIf="!this.showSeen" >visibility</mat-icon>
+    </button>  
+    <button mat-icon-button (click)="this.openModal()">
+        <mat-icon>search</mat-icon>
+    </button>
+</div> 
+
+@if (this.DbFilms){
+    <div class="search-results-box">
+        @for (film of DbFilms; track $index) {
+            <div *ngIf="film.visto == this.showSeen" class="search-results-item">
+                <div>
+                    <a [href]="film.link" target="_blank">
+                        <img class="cartel" [src]="this.getCartel(film.poster_url)">
+                    </a>
+                  </div>
+                <p class="title">{{film.name}} ({{film.year}})</p>
+                <button mat-icon-button class="icon-button" (click)="seeFilm(film)">
+                    <mat-icon style="color: red;" *ngIf="film.visto">cancel</mat-icon>
+                    <mat-icon style="color: #08F26E;" *ngIf="!film.visto">check_circle</mat-icon>
+                </button>
+            </div>
+        }
+        </div> 
+}
+
+</div>

@@ -1,0 +1,25 @@
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+
+.options{
+  display: flex;
+
+  .option-button{
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
+
+
+.option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

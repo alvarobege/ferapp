@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Buscar Pelicula</h2>
+
+<mat-dialog-content>
+  <div class="film-search-form">
+    <input class="text" [(ngModel)]="this.filmToSearch">
+    <button (click)="this.search()">Buscar</button>
+  </div>
+
+  @if (this.showSearch) {
+    <div class="search-results-box">
+    @for (item of busqueda; track $index) {
+        <div class="search-results-item">
+            <img class="cartel" [src]="this.getCartel(item.poster_path)"> 
+            <p class="title">{{item.original_title}} ({{item.release_date | date:'yyyy' }})</p>
+            <button mat-icon-button (click)="this.saveFilm(item)">
+            <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    }
+    </div>
+    }
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="closeModal()">Close
+  </button>
+</mat-dialog-actions>
