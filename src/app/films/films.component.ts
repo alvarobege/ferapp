@@ -27,7 +27,6 @@ export class FilmsComponent implements OnInit {
   getDbFilms(){
     this.db.GetFilms().subscribe((films: Film[])=> {
       this.DbFilms = films
-      console.log(this.DbFilms)
     })
   }
 

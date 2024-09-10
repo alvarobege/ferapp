@@ -1,0 +1,27 @@
+.title{
+    margin: 25px;
+    margin-bottom: 0px;
+    font-size: large;
+    font-weight: 500;
+    color: white;
+}
+
+.option-selection{
+    display: flex;
+    flex-direction: column;
+}
+
+.new-name{
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-left: 45px;
+}
+
+.new-name-empty{
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.input-file{
+    margin: 10px;
+}

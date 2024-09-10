@@ -3,7 +3,7 @@
 
 <div class="options">
 <button class="option-button" (click)="showOption(1)">🎥🎬🚬</button>
-<button class="option-button" (click)="showOption(2)">🎧🔊📀</button>
+<button class="option-button" (click)="showOption(2)"> 📸🖼️🤳</button>
 </div>
 
 <div class="option">
@@ -13,7 +13,9 @@
 </div>
 
 <div class="option">
-    @if (this.showMusica) {
-        <app-music></app-music>
+    @if (this.showPics) {
+        <app-pics></app-pics>
     }
 </div>
+
+

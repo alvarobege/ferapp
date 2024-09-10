@@ -1,0 +1,27 @@
+<div class="center-container">
+    <div class="buttons-container" style="color: #F300A1;">
+        <button mat-icon-button (click)="this.openModal()">
+            <mat-icon>library_add</mat-icon>
+        </button>
+    </div>
+    <div class="folder-list-container">
+        @if(this.dbAlbums.length > 0){
+        <div class="folder-list">
+        @for (album of this.dbAlbums; track $index) {
+            <div class="folder">
+                <img style="width: 50px;" src="../assets/folder-icon.png" (click)="getImages(album.name)">
+                <p>{{album.name}}</p>
+            </div>
+        }
+        </div>
+        }@else {
+            <p style="margin: 15px; text-align: center; font-weight: 500;">No hay carpetas :(</p>
+        }
+    </div>
+
+    @if(this.picsList.length > 0 ){
+        @for (item of this.picsList; track $index) {
+            <img [src]="item" width="100px">
+        }
+    }
+</div>

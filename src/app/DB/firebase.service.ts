@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Film} from '../films/interfaces/film'
+import {Album} from '../pics/interfaces/album'
 import { Firestore,collection, addDoc, collectionData, setDoc, doc, deleteDoc} from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 
@@ -30,5 +31,15 @@ export class FirebaseService {
     console.log(f.id)
     const docRef = doc(this.firestore, 'films', f.id!)
     return deleteDoc(docRef)
+  }
+
+  GetAlbums(): Observable<any[]>  {
+    const albumRef = collection(this.firestore, 'albums')
+    return collectionData(albumRef, { idField: 'id'}) as Observable<Album[]>
+  }
+
+  AddAlbum(a: Album){
+    const albumRef = collection(this.firestore, 'albums')
+    return addDoc(albumRef, a)
   }
 }

@@ -1,0 +1,22 @@
+<p class="title">Selecciona carpeta</p>
+<mat-dialog-content>   
+    @if (this.dbAlbums.length > 0) {
+        <mat-radio-group [(ngModel)]="albumSelected" class="option-selection">
+            <mat-radio-button *ngFor="let album of dbAlbums; let i = index" 
+            [value]="album.name">
+            {{album.name}}</mat-radio-button>
+            <mat-radio-button  value="">Nueva carpeta</mat-radio-button>
+        </mat-radio-group>
+
+    }
+    
+    <div [ngClass]="getClass()">
+        @if (this.dbAlbums.length == 0||albumSelected=="") {
+            <input placeholder="Nombre" class="text" [(ngModel)]="this.newAlbum.name">
+        }
+    </div>
+
+    <input class="input-file" type="file" placeholder="Seleccione fotos" (change)="onFilesSelected($event)" multiple>
+    <button class="input-file" (click)="upload()">Subir fotos</button>
+
+</mat-dialog-content>

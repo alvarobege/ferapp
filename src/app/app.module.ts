@@ -15,14 +15,18 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SearchModalComponent } from './films/components/search-modal/search-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { MusicComponent } from './music/music/music.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { PicsComponent } from './pics/pics.component';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { CreateAlbumComponent } from './pics/components/create-modal/create-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
     SearchModalComponent,
-    MusicComponent
+    PicsComponent,
+    CreateAlbumComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,12 +36,14 @@ import { MusicComponent } from './music/music/music.component';
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [
     provideFirebaseApp(() => initializeApp({"projectId":"ferandirene","appId":"1:400956120729:web:cf5b79dc6e52cf7434a208","storageBucket":"ferandirene.appspot.com","apiKey":"AIzaSyB18Se-VvnwiA4SbQAOOI8-t76m2-C_x6c","authDomain":"ferandirene.firebaseapp.com","messagingSenderId":"400956120729"})),
     provideFirestore(() => getFirestore()),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideStorage(() => getStorage())
   ],
   bootstrap: [AppComponent]
 })
