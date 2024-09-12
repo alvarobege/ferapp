@@ -19,6 +19,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { PicsComponent } from './pics/pics.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { CreateAlbumComponent } from './pics/components/create-modal/create-modal.component';
+import { DeleteModalComponent } from './pics/components/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CreateAlbumComponent } from './pics/components/create-modal/create-moda
     SearchModalComponent,
     PicsComponent,
     CreateAlbumComponent,
+    DeleteModalComponent,
   ],
   imports: [
     BrowserModule,

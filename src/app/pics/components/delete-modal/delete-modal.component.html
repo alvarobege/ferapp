@@ -1,0 +1,13 @@
+<p class="title">Selecciona carpeta</p>
+<mat-dialog-content>   
+    @if (this.dbAlbums.length > 0) {
+        <mat-radio-group [(ngModel)]="albumSelected" class="option-selection">
+            <mat-radio-button *ngFor="let album of dbAlbums; let i = index" 
+            [value]="album.name">
+            {{album.name}}</mat-radio-button>
+        </mat-radio-group>
+
+    }
+    <button class="input-file" (click)="delete()" >Borrar</button>
+
+</mat-dialog-content>

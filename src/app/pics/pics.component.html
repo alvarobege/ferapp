@@ -1,11 +1,14 @@
 <div class="center-container">
     <div class="buttons-container" style="color: #F300A1;">
-        <button mat-icon-button (click)="this.openModal()">
+        <button mat-icon-button (click)="this.openModalCreate()">
             <mat-icon>library_add</mat-icon>
+        </button>
+        <button mat-icon-button (click)="this.openModalDelete()">
+            <mat-icon>delete</mat-icon>
         </button>
     </div>
     <div class="folder-list-container">
-        @if(this.dbAlbums.length > 0){
+        @if(this.dbAlbums.length > 0 && this.picsList.length == 0){
         <div class="folder-list">
         @for (album of this.dbAlbums; track $index) {
             <div class="folder">
@@ -14,14 +17,25 @@
             </div>
         }
         </div>
-        }@else {
+        }
+        @if(this.dbAlbums.length == 0){
             <p style="margin: 15px; text-align: center; font-weight: 500;">No hay carpetas :(</p>
         }
+
+        @if(this.picsList.length > 0 ){
+            <button mat-icon-button style="color: #F300A1;" (click)="this.picsList = []">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <div class="image-list">
+            @for (item of this.picsList; track $index) {
+                <a [href]="this.picsList[$index]" target="_blank" >
+                <img [src]="item" class="image">
+                </a>
+            }
+            </div>
+        }
+
     </div>
 
-    @if(this.picsList.length > 0 ){
-        @for (item of this.picsList; track $index) {
-            <img [src]="item" width="100px">
-        }
-    }
+
 </div>

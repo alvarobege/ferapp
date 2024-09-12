@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Film} from '../films/interfaces/film'
 import {Album} from '../pics/interfaces/album'
-import { Firestore,collection, addDoc, collectionData, setDoc, doc, deleteDoc} from '@angular/fire/firestore'
+import { Firestore,collection, addDoc, collectionData, setDoc, doc, deleteDoc, query, where, getDocs} from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -41,5 +41,16 @@ export class FirebaseService {
   AddAlbum(a: Album){
     const albumRef = collection(this.firestore, 'albums')
     return addDoc(albumRef, a)
+  }
+
+  async RemoveAlbum(a: string){
+    const albumsRef = collection(this.firestore, 'albums');
+    const q = query(albumsRef, where('name', '==', a));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach(async (documento) => {
+      await deleteDoc(doc(this.firestore, `albums/${documento.id}`))
+        .then(() => console.log(`Documento con nombre ${a} eliminado`))
+        .catch(error => console.error("Error al eliminar el documento: ", error));
+    });
   }
 }
