@@ -3,7 +3,8 @@
 
 <div class="options">
 <button class="option-button" (click)="showOption(1)">🎥🎬🚬</button>
-<button class="option-button" (click)="showOption(2)"> 📸🖼️🤳</button>
+<button class="option-button" (click)="showOption(2)">📸🖼️🤳</button>
+<button class="option-button" (click)="showOption(3)">🗺️🧭🗽</button>  
 </div>
 
 <div class="option">
@@ -15,6 +16,12 @@
 <div class="option">
     @if (this.showPics) {
         <app-pics></app-pics>
+    }
+</div>
+
+<div class="option">
+    @if(this.showMaps){
+        <app-maps></app-maps>
     }
 </div>
 
