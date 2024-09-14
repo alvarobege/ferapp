@@ -1,10 +1,15 @@
 <div class="center-container">
     <div class="buttons-container" style="color: #F300A1;">
-
+        <button mat-icon-button (click)="this.openModalAdd()">
+            <mat-icon>bookmark</mat-icon>
+        </button>
     </div>
-    <div class="folder-list-container">
-        <mat-form-field>
-            <input #InputField matInput placeholder="Busca un lugar">
-        </mat-form-field>
+    <div id="map" class="folder-list-container">
+        <div style="height: 200px; margin: 5px;"
+        leaflet
+        [leafletOptions]="options"
+        [leafletLayers]="layers"
+        (leafletMapReady)="onMapReady($event)">
+        </div>
     </div>
 </div>

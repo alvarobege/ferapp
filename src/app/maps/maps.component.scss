@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+.buttons-container{
+    width: 360px;
+    display: flex;
+    flex-direction: row-reverse;
+} 
+
 
 .folder-list-container{
     width: 335px;

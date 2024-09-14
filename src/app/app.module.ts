@@ -20,6 +20,9 @@ import { PicsComponent } from './pics/pics.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { CreateAlbumComponent } from './pics/components/create-modal/create-modal.component';
 import { DeleteModalComponent } from './pics/components/delete-modal/delete-modal.component';
+import {MapsComponent} from './maps/maps.component'
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { AddMarkerComponent } from './maps/components/add-marker/add-marker.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { DeleteModalComponent } from './pics/components/delete-modal/delete-moda
     PicsComponent,
     CreateAlbumComponent,
     DeleteModalComponent,
+    MapsComponent,
+    AddMarkerComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { DeleteModalComponent } from './pics/components/delete-modal/delete-moda
     MatCheckboxModule,
     MatDialogModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    LeafletModule
   ],
   providers: [
     provideFirebaseApp(() => initializeApp({"projectId":"ferandirene","appId":"1:400956120729:web:cf5b79dc6e52cf7434a208","storageBucket":"ferandirene.appspot.com","apiKey":"AIzaSyB18Se-VvnwiA4SbQAOOI8-t76m2-C_x6c","authDomain":"ferandirene.firebaseapp.com","messagingSenderId":"400956120729"})),

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Film} from '../films/interfaces/film'
 import {Album} from '../pics/interfaces/album'
+import {Marcador} from '../maps/interfaces/map'
 import { Firestore,collection, addDoc, collectionData, setDoc, doc, deleteDoc, query, where, getDocs} from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 
@@ -52,5 +53,15 @@ export class FirebaseService {
         .then(() => console.log(`Documento con nombre ${a} eliminado`))
         .catch(error => console.error("Error al eliminar el documento: ", error));
     });
+  }
+
+  AddMap(m: Marcador){
+    const mapRef = collection(this.firestore, 'maps')
+    return addDoc(mapRef, m)
+  }
+
+  GetMaps(): Observable<Film[]> {
+    const filmRef = collection(this.firestore, 'films')
+    return collectionData(filmRef, { idField: 'id'}) as Observable<Film[]>
   }
 }

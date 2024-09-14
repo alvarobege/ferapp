@@ -1,0 +1,23 @@
+<p class="title">Guardar Marcador</p>
+
+<mat-dialog-content>
+    <input [(ngModel)]="this.name" type="text" placeholder="Nombre"><br>
+    <p style="margin-top: 7px; margin-bottom: 0px">Selecciona icono</p>
+    <mat-radio-group [(ngModel)]="this.iconSelected">
+        <mat-radio-button  value="1">🍽️</mat-radio-button>
+        <mat-radio-button  value="2">✈️</mat-radio-button>
+        <mat-radio-button  value="3">📸</mat-radio-button>
+        <mat-radio-button  value="4">🖼️</mat-radio-button>
+    </mat-radio-group>
+    <mat-checkbox (change)="onCheckboxChange($event)">Vincular Album</mat-checkbox><br>
+    @if((this.dbAlbums.length > 0) && (this.linkAlbum)) {
+        <mat-radio-group [(ngModel)]="albumSelected" class="option-selection">
+            <mat-radio-button *ngFor="let album of dbAlbums; let i = index" 
+            [value]="album.name">
+            {{album.name}}</mat-radio-button>
+        </mat-radio-group>
+    }
+
+    <button (click)="upload()">Guardar</button>
+
+</mat-dialog-content>

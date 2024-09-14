@@ -53,6 +53,8 @@ export class CreateAlbumComponent implements OnInit {
         .catch(e => console.error(e));       
     })
 
+    this.dialogRef.close()
+
 
   }
 
