@@ -3,13 +3,27 @@
         <button mat-icon-button (click)="this.openModalAdd()">
             <mat-icon>bookmark</mat-icon>
         </button>
+        <button *ngIf="dbMarker" mat-icon-button (click)="remove()">
+            <mat-icon>delete</mat-icon>
+        </button>
     </div>
     <div id="map" class="folder-list-container">
-        <div style="height: 200px; margin: 5px;"
+        <div style="height: 300px; margin: 5px;"
         leaflet
         [leafletOptions]="options"
-        [leafletLayers]="layers"
         (leafletMapReady)="onMapReady($event)">
         </div>
+        <div>
+            @if(this.dbPics.length > 0 ){
+                <div class="image-list">
+                @for (item of this.dbPics; track $index) {
+                    <a [href]="this.dbPics[$index]" target="_blank" >
+                    <img [src]="item" class="image">
+                    </a>
+                }
+                </div>
+            }
+            </div>
     </div>
+    
 </div>

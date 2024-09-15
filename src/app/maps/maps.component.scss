@@ -21,3 +21,27 @@
     border-color: #F300A1;
     background-color: white;
 }
+
+.image-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-top: 0px;
+    gap: 13px;
+    justify-content: flex-start;
+}
+
+.image-list a {
+    display: block;
+    width: 89px; /* Fija el ancho del contenedor del enlace */
+    height: 89px; /* Fija la altura para uniformar las imágenes */
+}
+  
+.image {
+display: block;
+width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+height: 100%; /* La imagen ocupa el 100% del alto del contenedor */
+object-fit: contain; /* Recorta la imagen manteniendo su proporción */
+box-sizing: border-box;
+text-align: center;
+}

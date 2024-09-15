@@ -48,6 +48,7 @@ export class AddMarkerComponent implements OnInit{
       icon: this.iconSelected,
       album: this.albumSelected
     }
-    this.db.AddMap(m)   
+    this.db.AddMap(m)  
+    this.dialogRef.close() 
   }
 }

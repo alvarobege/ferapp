@@ -60,8 +60,19 @@ export class FirebaseService {
     return addDoc(mapRef, m)
   }
 
-  GetMaps(): Observable<Film[]> {
-    const filmRef = collection(this.firestore, 'films')
-    return collectionData(filmRef, { idField: 'id'}) as Observable<Film[]>
+  GetMaps(): Observable<Marcador[]> {
+    const marcadorRef = collection(this.firestore, 'maps')
+    return collectionData(marcadorRef, { idField: 'id'}) as Observable<Marcador[]>
+  }
+
+  async RemoveMap(a: string){
+    const MapsRef = collection(this.firestore, 'maps');
+    const q = query(MapsRef, where('name', '==', a));
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach(async (documento) => {
+      await deleteDoc(doc(this.firestore, `maps/${documento.id}`))
+        .then(() => console.log(`Documento con nombre ${a} eliminado`))
+        .catch(error => console.error("Error al eliminar el documento: ", error));
+    });
   }
 }

@@ -1,5 +1,5 @@
 <div class="center-container">
-<img style="max-width: 200px; margin-bottom: 10px;" src="../assets/Irene-Fer-14-6-2024.png">
+<img class="animated-image" style="max-width: 200px; margin-bottom: 10px;" src="../assets/Irene-Fer-14-6-2024.png">
 
 <div class="options">
 <button class="option-button" (click)="showOption(1)">🎥🎬🚬</button>
@@ -7,6 +7,7 @@
 <button class="option-button" (click)="showOption(3)">🗺️🧭🗽</button>  
 </div>
 
+<div class="content"> 
 <div class="option">
 @if (this.showPeliculas) {
     <app-films></app-films>
@@ -24,5 +25,9 @@
         <app-maps></app-maps>
     }
 </div>
+
+</div>
+
+
 
 
